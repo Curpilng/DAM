@@ -1,10 +1,10 @@
 
 public class Cesar {
+
 static String alfabeto = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 static String alfabetoEncriptado ="";
 static String palabraEncriptada ="";
 static String palabraDesencriptada ="";
-
 
 /**Comprobamos si es primo relativo de 27,
  * es primo relativo si coincide el divisor solo con 1 y -1,

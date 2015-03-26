@@ -12,7 +12,7 @@ public class Enigma {
 	static int opcion;
 	
 	public static void main(String[] args) {
-
+		
 		introduceAB();
 		eligeOpcion();
 		palabra=introducePalabra().toUpperCase();
@@ -29,6 +29,7 @@ public class Enigma {
 		
 
 	}
+	
 	
 	//Le pedimos al usuario que introduzca la palabra que quiere encriptar o desencriptar
 	public static String introducePalabra(){
@@ -50,6 +51,7 @@ public class Enigma {
 	//Le pedimos al usuario que elija lo que va a hacer
 	public static void eligeOpcion(){
 		sc = new Scanner(System.in);
+		
 		while(opcion!=1 && opcion !=2){
 		System.out.println("Introduce '1' para encriptar o '2' para desencriptar ");
 		opcion = sc.nextInt();
