@@ -31,7 +31,6 @@ public class Ventana extends JFrame {
 	public Ventana() {
 		
 		
-		
 		//Panel (Ventana)
 		setTitle("Ventana Conversor");
 		setResizable(false);
@@ -149,7 +148,5 @@ public class Ventana extends JFrame {
 		contentPane.add(btnConvertir);
 		
 	}
-
-	
 }
 
