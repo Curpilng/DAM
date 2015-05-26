@@ -27,7 +27,7 @@ public class UsuariosModelo {
 		usuarios = new ArrayList<String>();
 	}
 	
-	public ArrayList getUsuarios(){
+	public ArrayList<String> getUsuarios(){
 		try {
 			instruccion = this.conexion.createStatement();
 			//Lanzamos consulta
