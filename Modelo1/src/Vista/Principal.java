@@ -52,8 +52,15 @@ public class Principal extends JFrame {
 		mnDelincuentes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CardLayout c = (CardLayout)contentPane.getLayout();
-				c.show(contentPane, "Delincuentes");
+				
+				if(inicio.isLogIn()==true){
+					CardLayout c = (CardLayout)contentPane.getLayout();
+					c.show(contentPane, "Delincuentes");
+				}else{
+					inicio.getLblError().setText("Tienes que hacer LogIn primero");
+				}
+				
+				
 			}
 		});
 		menuBar.add(mnDelincuentes);
