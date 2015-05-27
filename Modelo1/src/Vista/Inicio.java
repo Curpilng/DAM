@@ -32,6 +32,7 @@ public class Inicio extends JPanel {
 		
 		mUsuarios = new ModeloUsuarios();
 		
+		//Ponemos la lista de usuarios en el comboBox
 		Iterator<String> it = mUsuarios.getUsuarios().iterator();
 		while(it.hasNext()){
 			comboBoxUsuario.addItem((String)it.next());
@@ -55,6 +56,7 @@ public class Inicio extends JPanel {
 		//Boton LogOut
 		JButton btnLogOut = new JButton("LogOut");
 		btnLogOut.addActionListener(new ActionListener() {
+			//Si apreta logOut, se desconecta y se habilita el botón de logIn
 			public void actionPerformed(ActionEvent arg0) {
 				logIn=false;
 				btnLogOut.setEnabled(false);
@@ -71,9 +73,13 @@ public class Inicio extends JPanel {
 		//Boton LogIn
 		btnLogIn = new JButton("LogIn");
 		btnLogIn.addActionListener(new ActionListener() {
+			
+			//Comprueba que el campo contraseña no este vacío y concuerde con la contraseña correcta
 			public void actionPerformed(ActionEvent arg0) {
+			//Cogemos el campo escrito en el Jpassword	
 			String contrasenya = String.valueOf(passwordField.getPassword());
 
+			//Miramos si esta vacío y si es correcta la contraseña
 				if(contrasenya.isEmpty()){
 					lblError.setText("El campo contraseña no puede estar vacío");
 				}else{
@@ -97,10 +103,12 @@ public class Inicio extends JPanel {
 
 	}
 
+	//Nos devuelve si el login es true(Esta logueado), false(No lo esta)
 	public boolean isLogIn() {
 		return logIn;
 	}
 
+	//Nos devuelve el label Error, para poder modificarlo
 	public JLabel getLblError() {
 		return lblError;
 	}

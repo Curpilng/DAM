@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 
 public class ConectarBD {
+	
 	// Datos de la conexion
 	static final String CONTROLADOR_MYSQL="com.mysql.jdbc.Driver";
 

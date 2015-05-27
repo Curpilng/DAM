@@ -18,9 +18,10 @@ public class ModeloDelincuentes {
 	private static String POB="poblacion";
 	private static String ANT="antecedentes";
 	
-	//Almacenamiento de usuarios
+
 	public ArrayList<String> nombres =null;
 	public ArrayList<String[]> delincuentes = null;
+	
 	//Conexion
 	private Connection conexion = null;
 	private Statement instruccion = null;
@@ -33,6 +34,7 @@ public class ModeloDelincuentes {
 		
 	}
 	
+	//Guardamos la actualizacion a los antecedentes
 	public void guardarAntecedente(String nombreDelincuente,String antecedente){
 		try{
 			PreparedStatement pst = this.conexion.prepareStatement("UPDATE delincuentes SET antecedentes='"+antecedente+"' WHERE nombre='"+nombreDelincuente+"'");
@@ -43,6 +45,7 @@ public class ModeloDelincuentes {
 		}
 	}
 	
+	//Cogemos los datos del delicuente
 	public ArrayList<String[]> getDelincuentes(String nombreDelincuente){
 		delincuentes=new ArrayList<String[]>();
 		try{
@@ -76,6 +79,8 @@ public class ModeloDelincuentes {
 		return delincuentes;
 	}
 	
+	
+	//Nos devuelve los delincuentes
 	public ArrayList<String> getUsuarios(){
 			nombres = new ArrayList<String>();
 		try {
@@ -83,7 +88,7 @@ public class ModeloDelincuentes {
 			//Lanzamos consulta
 			resultados = instruccion.executeQuery(DELINCUENTES_LIST);
 			
-			//Almacenamos en arraylist los nombres de los usuarios
+			//Almacenamos en arraylist los nombres de los delincuentes
 			while(resultados.next()){
 				nombres.add(resultados.getString(NOMBRE));
 			}

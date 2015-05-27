@@ -42,11 +42,13 @@ public class Delincuentes extends JPanel {
 		
 		//Lista
 		mDelincuentes = new ModeloDelincuentes();
+		//Hacemos un array con los datos cogidos de la base de datos, para poder hacer la lista
 		String[] delincuentes = mDelincuentes.getUsuarios().toArray(new String[mDelincuentes.getUsuarios().size()]);
 		list = new JList(delincuentes);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
+				//Cogemos los datos del delincuente y los plasmamos en el textfield
 				Iterator<String[]> it = mDelincuentes.getDelincuentes((String)list.getSelectedValue()).iterator();
 				while(it.hasNext()){
 					delincuente = it.next();
@@ -130,6 +132,7 @@ public class Delincuentes extends JPanel {
 		add(textPoblacion);
 		textPoblacion.setColumns(10);
 		
+		//Mensaje de advertencia
 		JLabel lblElijaUnDelincuente = new JLabel("Elija un delincuente primero");
 		lblElijaUnDelincuente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblElijaUnDelincuente.setForeground(Color.RED);
@@ -142,6 +145,7 @@ public class Delincuentes extends JPanel {
 		JButton btnAntecedentes = new JButton("Antecedentes >>");
 		btnAntecedentes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Miramos si no ha sido escogido un delincuente
 				if(list.isSelectionEmpty()){
 					lblElijaUnDelincuente.setVisible(true);
 				}else{
@@ -161,10 +165,12 @@ public class Delincuentes extends JPanel {
 
 	}
 
+	//Nos devuelve el array con los datos del delincuente
 	public String[] getDelincuente() {
 		return delincuente;
 	}
 
+	//Cogemos la lista para ver en Antecedentes el Delincuente escogido
 	public JList getList() {
 		return list;
 	}

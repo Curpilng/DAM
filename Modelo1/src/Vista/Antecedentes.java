@@ -24,6 +24,7 @@ public class Antecedentes extends JPanel {
 		lblAntecedentes.setBounds(27, 45, 95, 14);
 		add(lblAntecedentes);
 		
+		//Recogemos el array con los datos del delincuente, 6(campo Antecedentes)
 		antecedentes=delincuentes.getDelincuente();
 		
 		textAntecedentes = new JTextField();

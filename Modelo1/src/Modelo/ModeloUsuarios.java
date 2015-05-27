@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ModeloUsuarios {
-	//Select usuarios
+
 	private static String USUARIOS_LIST="Select * from usuarios";
 	private static String USUARIO="usuario";
 	private static String PASS="pass";
@@ -29,13 +29,13 @@ public class ModeloUsuarios {
 		
 	}
 	
+	//Obtenemos la contraseña para ver si el login es correcto
 	public String logIn(String usuario){
 		try {
 			instruccion = this.conexion.createStatement();
 			//Lanzamos consulta
 			resultados = instruccion.executeQuery("Select pass from usuarios where usuario='"+usuario+"'");
 			
-			//Almacenamos en arraylist los nombres de los usuarios
 			while(resultados.next()){
 				pass = resultados.getString(PASS);
 			}
@@ -54,6 +54,7 @@ public class ModeloUsuarios {
 		return pass;
 	}
 	
+	//Nos devuelve los usuarios
 	public ArrayList<String> getUsuarios(){
 		usuarios = new ArrayList<String>();
 		try {

@@ -29,6 +29,7 @@ public class Principal extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		setContentPane(contentPane);
 		
+		//Añadimos los JPanel
 		contentPane.add(inicio,"Inicio");
 		contentPane.add(delincuentes,"Delincuentes");
 
@@ -53,6 +54,7 @@ public class Principal extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				//Si estamos logueados nos dejará entrar, sino nos mostrará un mensaje
 				if(inicio.isLogIn()==true){
 					CardLayout c = (CardLayout)contentPane.getLayout();
 					c.show(contentPane, "Delincuentes");
@@ -67,6 +69,7 @@ public class Principal extends JFrame {
 		
 	}
 	
+	//Añade y carga el jPanel Antecedentes
 	public void ponerAntecedentes(){
 		antecedentes = new Antecedentes(delincuentes);
 		contentPane.add(antecedentes,"Antecedentes");
